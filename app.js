@@ -1,4 +1,3 @@
-import Persona from 'Persona.js';
 
 function cargarDatos(){
     /*document.getElementById('idPersona').value = persona.id
@@ -15,42 +14,42 @@ function cargarCabecera(dest){
 
 
 
+
 /*
 1.1) El botón Modificar Datos en caso de éxito debe volcar la información de al objeto persona
 y mostrar un mensaje en la parte inferior “Guardado los datos correctamente” en color
 verde
 */
 
-const nombre = document.getElementById('txtnombre');
+const nombre = document.getElementById('txtname');
 const apellido1 = document.getElementById('txtsubnameone')
 const apellido2 = document.getElementById('txtsubnametwo')
 const nacionalidad = document.getElementById('txtnacionalidad');
 var contadorNumeros = 0;
 
 nombre.addEventListener('input', function() { 
-    texto(nombre.value,/^[A-Za-z]{3,20}$/); 
+    texto(nombre , /^[A-Za-z]{3,20}$/); 
 });
 
 apellido1.addEventListener('input', function() { 
-    texto(apellido1.value,/^[A-Za-z]{3,20}$/); 
+    texto(apellido1 ,/^[A-Za-z]{3,20}$/); 
 });
 
 apellido2.addEventListener('input', function() { 
-    texto(apellido2.value,/^[A-Za-z]{3,20}$/); 
+    texto(apellido2 ,/^[A-Za-z]{3,20}$/); 
 });
 
 nacionalidad.addEventListener('input', function() { 
-    texto(nacionalidad.value,/^[A-Za-z]{3,15}$/); 
+    texto(nacionalidad, /^[A-Za-z]{3,15}$/); 
 });
 
-function texto(text, regEx) {
-    
-    if (regEx.test(text)) {
-        nacionalidad.style.color = "green"; // Cambiado document.getElementById(text) a nacionalidad
+function texto(inputElement, regEx) {
+    if (regEx.test(inputElement.value)) {
+        inputElement.style.color = "green";
         contadorNumeros++;
         return true;
     } else {
-        nacionalidad.style.color = "red"; // Cambiado document.getElementById(text) a nacionalidad
+        inputElement.style.color = "red";
         return false;
     }
 }
@@ -65,7 +64,7 @@ function guardarUsuarios(nombre, apellido1, apellido2, nacionalidad) {
         personas.push(nuevaPersona)
         mensaje = "Guardado los datos correctamente"
         mensaje.style.color = "green";
-        
+
     }else{
         mensaje = "No se han guardado los datos"
         mensaje.style.color = "red";
