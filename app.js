@@ -27,4 +27,4 @@ function comprobarTarjeta() {
     const expresionRegular = /^[0-9]{16}$/;
     return expresionRegular.test(tarjeta.value);
 }
-
+ 
