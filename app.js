@@ -71,7 +71,8 @@ function ingresarDinero() {
 
     if (cantidadIngresar.value === "" && cantidadRetirar.value !== "") {
         cantidadRetirar.value = "";
-=======
+    }
+}
 class Persona {
 
     constructor(nombre, apellido1, apellido2, nacionalidad) {
