@@ -15,7 +15,31 @@
     </div>
 
     <div id="infoTarjetas">
-       
+       <h2>Tarjetas</h2>
+       <table>
+        <tr>
+          <th>Número de cuenta</th>
+          <th>Número de tarjeta</th>
+          <th>CCV</th>
+          <th>Activa</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </table>
+        <br><br>
+        <label>Numero De tarjeta: </label>
+        <input type="text" placeholder="Numero de tarjeta" id="txtNumTarjeta">
+        <br>
+        <label>CCV: </label>
+        <input type="text" placeholder="Numero de tarjeta" id="txtccv">
+        <br>
+        <label>Activo: </label>
+        <input type="checkbox" placeholder="Numero de tarjeta" id="isactivo">
+        <br>
+        <button onclick="guardarTarjeta()">Guardar Tarjeta</button>
     </div>
         <p id="mensaje"></p>
 <script src="app.js"></script>
