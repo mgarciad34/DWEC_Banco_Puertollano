@@ -1,4 +1,3 @@
-
 function cargarDatos(){
     /*document.getElementById('idPersona').value = persona.id
     document.getElementById('nombre').value = persona.nombre
@@ -12,7 +11,15 @@ function cargarCabecera(dest){
  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
 
+class Persona {
 
+    constructor(nombre, apellido1, apellido2, nacionalidad) {
+      this._nombre = nombre;
+      this._apellido1 = apellido1;
+      this._apellido2 = apellido2;
+      this._nacionalidad = nacionalidad;
+    }
+}
 
 
 /*
@@ -57,17 +64,19 @@ function texto(inputElement, regEx) {
 //Creamos un Array de personas para guardarlas
 const personas = []
 
-function guardarUsuarios(nombre, apellido1, apellido2, nacionalidad) {
-    var mensaje = "";
-    if(contadorNumeros == 4){
-        const nuevaPersona = new Persona(nombre, apellido1, apellido2, nacionalidad)
-        personas.push(nuevaPersona)
-        mensaje = "Guardado los datos correctamente"
-        mensaje.style.color = "green";
-
-    }else{
-        mensaje = "No se han guardado los datos"
-        mensaje.style.color = "red";
+function guardarUsuarios() {
+    var mensaje = document.getElementById('mensaje'); // Obtén el elemento donde mostrarás el mensaje
+    
+    if (contadorNumeros === 4) {
+        const nuevaPersona = new Persona(nombre.value, apellido1.value, apellido2.value, nacionalidad.value);
+        personas.push(nuevaPersona);
+        mensaje.textContent = "Guardado los datos correctamente"; // Actualiza el texto del mensaje
+        mensaje.style.color = "green"; // Aplica el estilo al mensaje
+        contadorNumeros = 0;
+        console.log(personas);
+    } else {
+        mensaje.textContent = "No se han guardado los datos"; // Actualiza el texto del mensaje
+        mensaje.style.color = "red"; // Aplica el estilo al mensaje
+        contadorNumeros = 0;
     }
-
 }
