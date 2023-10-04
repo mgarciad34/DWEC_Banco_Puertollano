@@ -27,19 +27,19 @@ const apellido2 = document.getElementById('txtsubnametwo')
 const nacionalidad = document.getElementById('txtnacionalidad');
 var contadorNumeros = 0;
 
-nombre.addEventListener('input', function() { 
+nombre.addEventListener('change', function() { 
     texto(nombre , /^[A-Za-z]{3,20}$/); 
 });
 
-apellido1.addEventListener('input', function() { 
+apellido1.addEventListener('change', function() { 
     texto(apellido1 ,/^[A-Za-z]{3,20}$/); 
 });
 
-apellido2.addEventListener('input', function() { 
+apellido2.addEventListener('change', function() { 
     texto(apellido2 ,/^[A-Za-z]{3,20}$/); 
 });
 
-nacionalidad.addEventListener('input', function() { 
+nacionalidad.addEventListener('change', function() { 
     texto(nacionalidad, /^[A-Za-z]{3,15}$/); 
 });
 
