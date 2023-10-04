@@ -6,9 +6,37 @@
 </head>
 <body>
     <div id="menu">
-       
+        <h1>BancoPuertollano</h1>
+        <ul >
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="infoCuenta.html">Información Cuenta</a></li>
+            <li><a href="tarjetas.html">Tarjetas</a></li>
+        </ul>
     </div>
-    
-</body>
 
+    <div id="addDatos">
+        <label>Nombre: </label>
+        <input type="text" placeholder="Tu nombre" id="txtname">
+        <br>
+
+        <label>Primer Apellido: </label>
+        <input type="text" placeholder="Primer Apellido" id="txtsubnameone">
+        <br>
+
+        <label>Segundo Apellido: </label>
+        <input type="text" placeholder="Segundo Apellido" id="txtsubnametwo">
+        <br>
+
+        <label>Nacionalidad: </label>
+        <input type="text" placeholder="Nacionalidad" id="txtnacionalidad">
+        <br>
+
+        <button type="submit" onclick="guardarUsuarios()">Modificar Datos</button>
+        
+    </div>
+        <p id="mensaje"></p>
+<script src="app.js"></script>
+<script>cargarDatos()</script>
+
+</body>
 </html>
