@@ -1,10 +1,9 @@
 function cargarDatos(){
-    /*document.getElementById('idPersona').value = persona.id
-    document.getElementById('nombre').value = persona.nombre
-    document.getElementById('apellido1').value = persona.apellido1
-    document.getElementById('apellido2').value = persona.apellido2
-    document.getElementById('nacionalidad').value = persona.nacionalidad*/
-    menu = document.getElementById('menu').innerHTML
+    document.getElementById('txtname').value = persona._nombre
+    document.getElementById('txtsubnameone').value = persona._apellido1
+    document.getElementById('txtsubnametwo').value = persona._apellido2
+    document.getElementById('txtnacionalidad').value = persona._nacionalidad
+   // menu = document.getElementById('menu').innerHTML
 }
 
 function cargarCabecera(dest){  
@@ -20,8 +19,6 @@ class Persona {
       this._nacionalidad = nacionalidad;
     }
 }
-
-
 /*
 1.1) El botón Modificar Datos en caso de éxito debe volcar la información de al objeto persona
 y mostrar un mensaje en la parte inferior “Guardado los datos correctamente” en color
@@ -35,19 +32,19 @@ const nacionalidad = document.getElementById('txtnacionalidad');
 var contadorNumeros = 0;
 
 nombre.addEventListener('change', function() { 
-    texto(nombre , /^[A-Za-z]{3,20}$/); 
+    texto(nombre , /^[A-Za-zñ]{3,20}$/); 
 });
 
 apellido1.addEventListener('change', function() { 
-    texto(apellido1 ,/^[A-Za-z]{3,20}$/); 
+    texto(apellido1 ,/^[A-Za-zñ]{3,20}$/); 
 });
 
 apellido2.addEventListener('change', function() { 
-    texto(apellido2 ,/^[A-Za-z]{3,20}$/); 
+    texto(apellido2 ,/^[A-Za-zñ]{3,20}$/); 
 });
 
 nacionalidad.addEventListener('change', function() { 
-    texto(nacionalidad, /^[A-Za-z]{3,15}$/); 
+    texto(nacionalidad, /^[A-Za-zñ]{3,15}$/); 
 });
 
 function texto(inputElement, regEx) {
@@ -61,22 +58,35 @@ function texto(inputElement, regEx) {
     }
 }
 
-//Creamos un Array de personas para guardarlas
-const personas = []
+const persona = new Persona('Manuel', 'García', 'Díaz', 'Español')    
+
+
+var mensaje = document.getElementById('mensaje'); // Definir mensaje globalmente
 
 function guardarUsuarios() {
-    var mensaje = document.getElementById('mensaje'); // Obtén el elemento donde mostrarás el mensaje
-    
+    console.log(contadorNumeros);
+
     if (contadorNumeros === 4) {
-        const nuevaPersona = new Persona(nombre.value, apellido1.value, apellido2.value, nacionalidad.value);
-        personas.push(nuevaPersona);
+        // Obtén los valores de los campos de formulario
+        var nuevoNombre = document.getElementById('txtname').value;
+        var nuevoApellido1 = document.getElementById('txtsubnameone').value;
+        var nuevoApellido2 = document.getElementById('txtsubnametwo').value;
+        var nuevaNacionalidad = document.getElementById('txtnacionalidad').value;
+
+        // Actualiza el objeto persona1 con los nuevos valores
+        persona._nombre = nuevoNombre;
+        persona._apellido1 = nuevoApellido1;
+        persona._apellido2 = nuevoApellido2;
+        persona._nacionalidad = nuevaNacionalidad;
+
         mensaje.textContent = "Guardado los datos correctamente"; // Actualiza el texto del mensaje
         mensaje.style.color = "green"; // Aplica el estilo al mensaje
         contadorNumeros = 0;
-        console.log(personas);
     } else {
-        mensaje.textContent = "No se han guardado los datos"; // Actualiza el texto del mensaje
+        mensaje.textContent = "Datos no guardados"; // Actualiza el texto del mensaje
         mensaje.style.color = "red"; // Aplica el estilo al mensaje
         contadorNumeros = 0;
     }
+
+    console.log(persona);
 }
