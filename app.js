@@ -6,6 +6,12 @@ function cargarDatos(){
    // menu = document.getElementById('menu').innerHTML
 }
 
+function navegar(){
+    var co = JSON.stringify(persona);
+    localStorage.setItem("persona",persona)
+    window.location.href='datos.html'
+}
+
 function cargarCabecera(dest){  
  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
@@ -58,7 +64,7 @@ function texto(inputElement, regEx) {
     }
 }
 
-const persona = new Persona('Manuel', 'García', 'Díaz', 'Español')    
+const persona = new Persona('Manuel', 'Garcia', 'Diaz', 'Español')    
 
 
 var mensaje = document.getElementById('mensaje'); // Definir mensaje globalmente
