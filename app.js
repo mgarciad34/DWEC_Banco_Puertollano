@@ -128,8 +128,6 @@ function texto(inputElement, regEx) {
 const persona = new Persona('Manuel', 'Garcia', 'Diaz', 'Español')    
 
 
-var mensaje = document.getElementById('mensaje'); // Definir mensaje globalmente
-
 function guardarUsuarios() {
     console.log(contadorNumeros);
 
