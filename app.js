@@ -16,8 +16,8 @@ function navegar(){
     localStorage.setItem("banco", conversionBanco)
 }
 
-var banc = localStorage.getItem("banco")
-var co = JSON.parse(banc)
+var saveBanco = localStorage.getItem("banco")
+var co = JSON.parse(saveBanco)
 
 class Banco{
     constructor(numCuenta, saldoTotal){
