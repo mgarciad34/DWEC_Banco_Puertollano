@@ -7,13 +7,23 @@ function cargarDatos(){
     menu = document.getElementById('menu').innerHTML
 }
 
-function cargarCabecera(dest){  
- document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
+function navegar(){
+    var conversionBanco = JSON.stringify(banco);
+    localStorage.setItem("banco", conversionBanco)
 }
 
-function navegar(){
-    var co = JSON.stringify(persona);
-    localStorage.setItem("persona",persona)
+var banc = localStorage.getItem("banco")
+var co = JSON.parse(banc)
+
+class Banco{
+    constructor(numCuenta, saldoTotal){
+        this.numCuenta = numCuenta;
+        this.saldoTotal = saldoTotal;
+    }
+}
+
+function cargarCabecera(dest){  
+ document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
 
 /*
@@ -31,7 +41,7 @@ var cantidadRetirar = document.getElementById("txtretirar");
 var cantidadIngresar = document.getElementById("txtingresar");
 const mensaje = document.getElementById("mensaje");
 
-
+var banco = new Banco(iban, saldoFijo)
 
 function retirarDinero(){
     const cantidadRetiro = parseFloat(cantidadRetirar.value);
@@ -46,6 +56,7 @@ function retirarDinero(){
     } else {
         const nuevoSaldo = saldo - cantidadRetiro;
         saldoFijo.value = nuevoSaldo.toFixed(2);
+        banco.saldoTotal = saldoFijo.value;
         mensaje.innerText = `Retirado: ${cantidadRetiro.toFixed(2)} euros. Nuevo saldo: ${nuevoSaldo.toFixed(2)} euros.`;
         mensaje.style.color = "green";
         cantidadRetirar.value = "";
@@ -72,6 +83,7 @@ function ingresarDinero() {
     } else {
         const nuevoSaldo = saldo + cantidadIngreso;
         saldoFijo.value = nuevoSaldo.toFixed(2);
+        banco.saldoTotal = saldoFijo.value;
         mensaje.innerText = `Ingresado: ${cantidadIngreso.toFixed(2)} euros. Nuevo saldo: ${nuevoSaldo.toFixed(2)} euros.`;
         mensaje.style.color = "green";
         cantidadIngresar.value = "";
