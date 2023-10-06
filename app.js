@@ -56,6 +56,7 @@ function retirarDinero(){
     } else {
         const nuevoSaldo = saldo - cantidadRetiro;
         saldoFijo.value = nuevoSaldo.toFixed(2);
+        banco.numCuenta = iban.value;
         banco.saldoTotal = saldoFijo.value;
         mensaje.innerText = `Retirado: ${cantidadRetiro.toFixed(2)} euros. Nuevo saldo: ${nuevoSaldo.toFixed(2)} euros.`;
         mensaje.style.color = "green";
@@ -83,6 +84,7 @@ function ingresarDinero() {
     } else {
         const nuevoSaldo = saldo + cantidadIngreso;
         saldoFijo.value = nuevoSaldo.toFixed(2);
+        banco.numCuenta = iban.value;
         banco.saldoTotal = saldoFijo.value;
         mensaje.innerText = `Ingresado: ${cantidadIngreso.toFixed(2)} euros. Nuevo saldo: ${nuevoSaldo.toFixed(2)} euros.`;
         mensaje.style.color = "green";
