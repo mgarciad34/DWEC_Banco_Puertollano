@@ -11,6 +11,11 @@ function cargarCabecera(dest){
  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
 
+function navegar(){
+    var co = JSON.stringify(persona);
+    localStorage.setItem("persona",persona)
+}
+
 /*
 2.1) Por defecto vendrá cargado un iban y un saldo de 500 euros, los campos iban y saldo 
 estarán deshabilitados, por lo que no podrán ser editables por el usuario.
