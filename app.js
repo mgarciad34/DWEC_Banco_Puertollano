@@ -1,4 +1,3 @@
-
 function cargarDatos(){
     document.getElementById('txtname').value = persona._nombre
     document.getElementById('txtsubnameone').value = persona._apellido1
@@ -97,17 +96,7 @@ function guardarUsuarios() {
     console.log(persona);
 }
 
-
-
-class Banco{
-    constructor(numCuenta, saldoTotal){
-        this.numCuenta = numCuenta;
-        this.saldoTotal = saldoTotal;
-    }
-}
-
 function cargarCabecera(dest){  
  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
-
 
