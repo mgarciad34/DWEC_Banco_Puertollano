@@ -8,9 +8,9 @@
     <div id="menu">
         <h1>BancoPuertollano</h1>
         <ul >
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="infoCuenta.html">Información Cuenta</a></li>
-            <li><a href="tarjetas.html">Tarjetas</a></li>
+            <li><a href="index.html" onclick="navegar()">Inicio</a></li>
+            <li><a href="infoCuenta.html" onclick="navegar()">Información Cuenta</a></li>
+            <li><a href="tarjetas.html" onclick="navegar()">Tarjetas</a></li>
         </ul>
     </div>
 
@@ -26,11 +26,11 @@
         <br>
 
         <input type="text" placeholder="Saldo a retirar" id="txtretirar">
-        <button type="submit" onclick="retirarDinero()">Retirar</button>
+        <button type="button" onclick="retirarDinero()">Retirar</button>
         <br>
 
         <input type="text" placeholder="Saldo a ingresar" id="txtingresar">        
-        <button type="submit" onclick="ingresarDinero()">Ingresar</button>
+        <button type="button" onclick="ingresarDinero()">Ingresar</button>
     </div>
         <p id="mensaje"></p>
 <script src="app.js"></script>

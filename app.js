@@ -11,6 +11,21 @@ function navegar(){
     localStorage.setItem("persona",contenido)
 }
 
+function navegar(){
+    var conversionBanco = JSON.stringify(banco);
+    localStorage.setItem("banco", conversionBanco)
+}
+
+var banc = localStorage.getItem("banco")
+var co = JSON.parse(banc)
+
+class Banco{
+    constructor(numCuenta, saldoTotal){
+        this.numCuenta = numCuenta;
+        this.saldoTotal = saldoTotal;
+    }
+}
+
 function cargarCabecera(dest){  
  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
@@ -26,9 +41,11 @@ correctamente.
 
 const iban = document.getElementById("txtiban");
 const saldoFijo = document.getElementById("txtsaldo");
-const cantidadRetirar = document.getElementById("txtretirar");
-const cantidadIngresar = document.getElementById("txtingresar");
+var cantidadRetirar = document.getElementById("txtretirar");
+var cantidadIngresar = document.getElementById("txtingresar");
 const mensaje = document.getElementById("mensaje");
+
+var banco = new Banco(iban, saldoFijo)
 
 function retirarDinero(){
     const cantidadRetiro = parseFloat(cantidadRetirar.value);
@@ -43,6 +60,7 @@ function retirarDinero(){
     } else {
         const nuevoSaldo = saldo - cantidadRetiro;
         saldoFijo.value = nuevoSaldo.toFixed(2);
+        banco.saldoTotal = saldoFijo.value;
         mensaje.innerText = `Retirado: ${cantidadRetiro.toFixed(2)} euros. Nuevo saldo: ${nuevoSaldo.toFixed(2)} euros.`;
         mensaje.style.color = "green";
         cantidadRetirar.value = "";
@@ -60,7 +78,8 @@ mostrará un mensaje en verde de que el dinero ha sido ingresado correctamente.
 function ingresarDinero() {
     const cantidadIngreso = parseFloat(cantidadIngresar.value);
     const saldo = parseFloat(saldoFijo.value);
-    const mensaje = document.getElementById("mensaje");
+    // Elimina la siguiente línea, ya que 'mensaje' ya se ha declarado al principio
+    // const mensaje = document.getElementById("mensaje");
 
     if (isNaN(cantidadIngreso) || cantidadIngreso <= 0) {
         mensaje.innerText = "Cantidad no válida.";
@@ -68,6 +87,7 @@ function ingresarDinero() {
     } else {
         const nuevoSaldo = saldo + cantidadIngreso;
         saldoFijo.value = nuevoSaldo.toFixed(2);
+        banco.saldoTotal = saldoFijo.value;
         mensaje.innerText = `Ingresado: ${cantidadIngreso.toFixed(2)} euros. Nuevo saldo: ${nuevoSaldo.toFixed(2)} euros.`;
         mensaje.style.color = "green";
         cantidadIngresar.value = "";
@@ -77,6 +97,16 @@ function ingresarDinero() {
         cantidadRetirar.value = "";
     }
 }
+
+
+cantidadRetirar.addEventListener("focus", function() {
+      cantidadIngresar.value = "";
+  });
+  
+  cantidadIngresar.addEventListener("focus", function() {
+      cantidadRetirar.value = "";
+  });
+
 class Persona {
 
     constructor(nombre, apellido1, apellido2, nacionalidad) {
@@ -153,4 +183,3 @@ function guardarUsuarios() {
         contadorNumeros = 0;
     }
 }
-
