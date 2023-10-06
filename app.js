@@ -40,7 +40,7 @@ const iban = document.getElementById("txtiban");
 const saldoFijo = document.getElementById("txtsaldo");
 var cantidadRetirar = document.getElementById("txtretirar");
 var cantidadIngresar = document.getElementById("txtingresar");
-
+//var mensaje = document.getElementById("mensaje");
 var banco = new Banco(iban, saldoFijo)
 
 function retirarDinero(){
