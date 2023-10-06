@@ -7,9 +7,8 @@ function cargarDatos(){
 }
 
 function navegar(){
-    var co = JSON.stringify(persona);
-    localStorage.setItem("persona",persona)
-    window.location.href='datos.html'
+    var contenido = JSON.stringify(persona);
+    localStorage.setItem("persona",contenido)
 }
 
 function cargarCabecera(dest){  
