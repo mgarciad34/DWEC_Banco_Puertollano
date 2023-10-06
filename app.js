@@ -40,7 +40,6 @@ const iban = document.getElementById("txtiban");
 const saldoFijo = document.getElementById("txtsaldo");
 var cantidadRetirar = document.getElementById("txtretirar");
 var cantidadIngresar = document.getElementById("txtingresar");
-const mensaje = document.getElementById("mensaje");
 
 var banco = new Banco(iban, saldoFijo)
 
@@ -106,12 +105,3 @@ cantidadRetirar.addEventListener("focus", function() {
       cantidadRetirar.value = "";
   });
 
-class Persona {
-
-    constructor(nombre, apellido1, apellido2, nacionalidad) {
-      this._nombre = nombre;
-      this._apellido1 = apellido1;
-      this._apellido2 = apellido2;
-      this._nacionalidad = nacionalidad;
-    }
-}
