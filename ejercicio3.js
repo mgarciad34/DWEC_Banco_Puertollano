@@ -13,9 +13,12 @@ function cargarCabecera(dest){
 
 
 function navegar(){
-    var conversionTarjeta = JSON.stringify(tarjeta);
-    localStorage.setItem("tarjeta",conversionTarjeta)
+    var conversionTarjeta = JSON.stringify(tarjetas);
+    localStorage.setItem("tarjetas",conversionTarjeta)
 }
+
+var saveTarjetas = localStorage.getItem("tarjetas")
+var co = JSON.parse(saveTarjetas)
 /*
 3.1) Cada cuenta puede tener tarjetas de crédito asociadas, las tarjetas están compuestas del 
 número de tarjeta y si están activas o no. Esta tabla es dinámica, cuando el usuario guarde una 
