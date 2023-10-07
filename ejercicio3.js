@@ -13,7 +13,7 @@ function cargarCabecera(dest){
 
 
 function navegar(){
-    var conversionTarjeta = JSON.stringify(tarjeta);
+    var conversionTarjeta = JSON.stringify(tarjetas);
     localStorage.setItem("tarjeta",conversionTarjeta)
 }
 /*
