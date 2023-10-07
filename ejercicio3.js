@@ -15,6 +15,7 @@ function cargarCabecera(dest){
 function navegar(){
     var conversionTarjeta = JSON.stringify(tarjetas);
     localStorage.setItem("tarjetas",conversionTarjeta)
+    localStorage.setItem("tarjeta",conversionTarjeta)
 }
 
 var saveTarjetas = localStorage.getItem("tarjetas")
